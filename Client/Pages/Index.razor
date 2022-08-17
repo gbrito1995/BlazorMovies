@@ -7,16 +7,28 @@
 
 <div>
     <h3>Movie</h3>
-    <p>Title: <b>@spiderman.Title</b></p>
-    <p>Realese Date: <b>@spiderman.RealeaseDate.ToString("dd/mm/yyyy")</b></p>
+    @foreach (var movie in movies)
+    {
+        <p>Title: <b>@movie.Title</b></p>
+        <p>Realese Date: <b>@movie.RealeaseDate.ToString("dd/mm/yyyy")</b></p>
+    }
+
 </div>
 
 @code {
     string name = "Gabriel Brito";
 
-    Movie spiderman = new Movie()
+    List<Movie>? movies;
+
+    protected override void OnInitialized ()
     {
-        Title = "Spider-Man far from home",
-        RealeaseDate = new DateTime(2019, 7, 2)
-    };
+        movies = new List<Movie> ()
+        {
+            new Movie(){Title = "Spider-Man: Far From Home", RealeaseDate = new DateTime(2019, 7, 2)},
+            new Movie(){Title = "Moana", RealeaseDate = new DateTime(20160, 11, 23)},
+            new Movie(){Title = "Inception", RealeaseDate = new DateTime(2019, 7, 16)}
+        };
+    }
+
+
 }
