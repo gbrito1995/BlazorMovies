@@ -6,29 +6,43 @@
 <button @onclick="@(() => Console.WriteLine("I`ve been clicked!"))">Click Me</button>
 
 <div>
+    
     <h3>Movie</h3>
-    @foreach (var movie in movies)
+
+    @if (movies == null)
     {
-        <p>Title: <b>@movie.Title</b></p>
-        <p>Realese Date: <b>@movie.RealeaseDate.ToString("dd/mm/yyyy")</b></p>
+        <text>Loading...</text>
+    }
+    else 
+    {
+
+        @foreach (var movie in movies)
+        {
+            <p>Title: <b>@movie.Title</b></p>
+            <p>Realese Date: <b>@movie.RealeaseDate.ToString("dd MMM yyyy")</b></p>
+        }
+
     }
 
+    
 </div>
 
 @code {
     string name = "Gabriel Brito";
 
-    List<Movie>? movies;
+    List<Movie> movies;
 
-    protected override void OnInitialized ()
+    protected async override Task OnInitializedAsync() 
     {
-        movies = new List<Movie> ()
+        await Task.Delay(3000);
+
+        List<Movie> movies = new List<Movie> ()
         {
             new Movie(){Title = "Spider-Man: Far From Home", RealeaseDate = new DateTime(2019, 7, 2)},
-            new Movie(){Title = "Moana", RealeaseDate = new DateTime(20160, 11, 23)},
+            new Movie(){Title = "Moana", RealeaseDate = new DateTime(2016, 11, 23)},
             new Movie(){Title = "Inception", RealeaseDate = new DateTime(2019, 7, 16)}
         };
     }
 
-
+    
 }
