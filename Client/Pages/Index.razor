@@ -1,4 +1,9 @@
 ﻿@page "/"
+@inject SingletonService singleton2;
+@inject IRepo repoInMemory;
+
+
+<p>Singleton: @singleton2.Value</p>
 
 <div>
 
@@ -14,12 +19,7 @@
     private List<Movie> movies;
     protected override void OnInitialized() 
     {
-       movies = new List<Movie> ()
-        {
-            new Movie(){Title = "Spider-Man: Far From Home", RealeaseDate = new DateTime(2019, 7, 2)},
-            new Movie(){Title = "Moana", RealeaseDate = new DateTime(2016, 11, 23)},
-            new Movie(){Title = "Inception", RealeaseDate = new DateTime(2019, 7, 16)}
-        };
+       movies = repoInMemory.GetMovies();
    }
 
 
