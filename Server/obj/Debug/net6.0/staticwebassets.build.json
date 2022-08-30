@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7YikOpvhTpy8ZT5qr2PcWyFOZiFu3kFPPTLezWrnv/8=",
+  "Hash": "6jGeCYC6AlDzvszJBS2oQ52uvO12jQocKR4prD5Kabs=",
   "Source": "BlazorMovies.Server",
   "BasePath": "_content/BlazorMovies.Server",
   "Mode": "Default",
@@ -7150,6 +7150,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\gabri\\Documents\\blazor\\BlazorMovies\\Client\\wwwroot\\Utilities.js",
+      "SourceId": "BlazorMovies.Client",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\gabri\\Documents\\blazor\\BlazorMovies\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "Utilities.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Utilities.js"
     }
   ]
 }
