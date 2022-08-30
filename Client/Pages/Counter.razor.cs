@@ -2,6 +2,7 @@ using BlazorMovies.Shared.Entities;
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 
 namespace BlazorMovies.Client.Pages
@@ -12,8 +13,10 @@ namespace BlazorMovies.Client.Pages
         
         [Inject] SingletonService singleton {get; set;}
         [Inject] TransientService transient {get; set;}
-
+        [Inject] IJSRuntime js {get; set;}
+        
         public int currentCount {get; set;}
+        IJSObjectReference module;
 
         private List<Movie> movies;
 
@@ -26,12 +29,16 @@ namespace BlazorMovies.Client.Pages
                 };
         }
 
-        public void IncrementCount()
-        {
+        public async Task IncrementCount()
+        {   
+            module  = await js.InvokeAsync<IJSObjectReference>("import", "../js/Counter.js");
+            await module.InvokeVoidAsync("displayALert", "message");
+
             currentCount ++;
             singleton.Value ++;
             transient.Value ++;
         }
+        
     }
 
 }
